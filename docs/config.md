@@ -44,7 +44,7 @@ In this case, you could provide the configuration in the `/.well-known/matrix/cl
 * `loginBackgroundUrl` - set custom login background image URL.
   It accepts an absolute URL (for example `https://example.com/background.jpg`) or a relative URL served by the same host.
 * `loginWelcomeText` - set custom login welcome text.
-  You can use `%{name}` placeholder to include the instance name (for example: `Welcome to %{name} at HGRS`).
+  You can use `%{name}` placeholder to include the instance name (for example: `Welcome to %{name}`).
 * `menu` - add custom menu items to the main menu (sidebar) by providing a `menu` array in the config.
   Each `menu` item can contain the following fields:
   * `label` (required): The text to display in the menu.
@@ -63,7 +63,7 @@ In this case, you could provide the configuration in the `/.well-known/matrix/cl
     "https://synapse.example.net"
   ],
   "loginBackgroundUrl": "/matrix-assets/admin-background.jpg",
-  "loginWelcomeText": "Welcome to %{name} at HGRS",
+  "loginWelcomeText": "Welcome to %{name}",
   "asManagedUsers": [
     "^@baibot:example\\.com$",
     "^@slackbot:example\\.com$",
@@ -91,7 +91,7 @@ In this case, you could provide the configuration in the `/.well-known/matrix/cl
       "https://synapse.example.net"
     ],
     "loginBackgroundUrl": "/matrix-assets/admin-background.jpg",
-    "loginWelcomeText": "Welcome to %{name} at HGRS",
+    "loginWelcomeText": "Welcome to %{name}",
     "asManagedUsers": [
       "^@baibot:example\\.com$",
       "^@slackbot:example\\.com$",
