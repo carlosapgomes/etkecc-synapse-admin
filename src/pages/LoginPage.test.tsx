@@ -85,4 +85,24 @@ describe("LoginForm", () => {
     // Username and password fields are not visible until server info is checked
     // and supportPassAuth is determined
   });
+
+  it("uses configured welcome text and interpolates instance name placeholder", () => {
+    render(
+      <AppContext.Provider
+        value={{
+          restrictBaseUrl: "",
+          asManagedUsers: [],
+          menu: [],
+          corsCredentials: "include",
+          loginWelcomeText: "Welcome to %{name} at HGRS",
+        }}
+      >
+        <AdminContext i18nProvider={i18nProvider}>
+          <LoginPage />
+        </AdminContext>
+      </AppContext.Provider>
+    );
+
+    screen.getByText("Welcome to Synapse Admin at HGRS");
+  });
 });

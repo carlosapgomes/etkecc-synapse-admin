@@ -50,8 +50,7 @@ export type LoginMethod = "credentials" | "accessToken";
  * Get restricted base URL(s) from app context
  * @returns tuple of (single URL or null, array of URLs or null)
  */
-function getRestrictedBaseUrl(): [string | null, string[] | null] {
-  const { restrictBaseUrl } = useAppContext();
+function getRestrictedBaseUrl(restrictBaseUrl: string | string[] | null | undefined): [string | null, string[] | null] {
   // no var set, allow any
   if (!restrictBaseUrl) {
     return [null, null];
@@ -93,7 +92,8 @@ function getRestrictedBaseUrl(): [string | null, string[] | null] {
 const LoginPage = () => {
   const login = useLogin();
   const notify = useNotify();
-  const [restrictBaseUrlSingle, restrictBaseUrlMultiple] = getRestrictedBaseUrl();
+  const { restrictBaseUrl, loginBackgroundUrl, loginWelcomeText } = useAppContext();
+  const [restrictBaseUrlSingle, restrictBaseUrlMultiple] = getRestrictedBaseUrl(restrictBaseUrl);
   const baseUrlChoices = restrictBaseUrlMultiple ? restrictBaseUrlMultiple : [];
   const localStorageBaseUrl = localStorage.getItem("base_url");
   let base_url = restrictBaseUrlSingle
@@ -282,6 +282,15 @@ const LoginPage = () => {
   if (icfg.background_url) {
     backgroundUrl = icfg.background_url;
   }
+  if (loginBackgroundUrl) {
+    backgroundUrl = loginBackgroundUrl;
+  }
+
+  const defaultWelcomeText = translate("synapseadmin.auth.welcome", { name: welcomeTo });
+  const welcomeText =
+    loginWelcomeText && loginWelcomeText.trim() !== ""
+      ? loginWelcomeText.replaceAll("%{name}", welcomeTo)
+      : defaultWelcomeText;
 
   const UserData = ({ formData }) => {
     const form = useFormContext();
@@ -452,7 +461,7 @@ const LoginPage = () => {
               <Avatar sx={{ width: "120px", height: "120px" }} src={logoUrl} />
             )}
           </Box>
-          <Box className="hint">{translate("synapseadmin.auth.welcome", { name: welcomeTo })}</Box>
+          <Box className="hint">{welcomeText}</Box>
           <Box className="form">
             <Select
               fullWidth

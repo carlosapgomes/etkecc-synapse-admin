@@ -21,6 +21,7 @@ import persianMessages from "./i18n/fa";
 import frenchMessages from "./i18n/fr";
 import italianMessages from "./i18n/it";
 import japaneseMessages from "./i18n/ja";
+import portugueseBrazilianMessages from "./i18n/pt-BR";
 import russianMessages from "./i18n/ru";
 import ukrainianMessages from "./i18n/uk";
 import chineseMessages from "./i18n/zh";
@@ -46,6 +47,7 @@ const messages = {
   ru: russianMessages,
   uk: ukrainianMessages,
   zh: chineseMessages,
+  "pt-BR": portugueseBrazilianMessages,
 };
 const i18nProvider = polyglotI18nProvider(
   locale => (messages[locale] ? merge({}, messages.en, messages[locale]) : messages.en),
@@ -60,6 +62,7 @@ const i18nProvider = polyglotI18nProvider(
     { locale: "ru", name: "Russian (Русский)" },
     { locale: "uk", name: "Ukrainian (Українська)" },
     { locale: "zh", name: "Chinese (简体中文)" },
+    { locale: "pt-BR", name: "Português (Brasil)" },
   ]
 );
 

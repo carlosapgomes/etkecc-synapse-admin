@@ -5,6 +5,8 @@ export interface Config {
   menu: MenuItem[];
   externalAuthProvider?: boolean;
   etkeccAdmin?: string;
+  loginBackgroundUrl?: string;
+  loginWelcomeText?: string;
 }
 
 export interface MenuItem {
@@ -23,6 +25,8 @@ let config: Config = {
   asManagedUsers: [],
   menu: [],
   etkeccAdmin: "",
+  loginBackgroundUrl: "",
+  loginWelcomeText: "",
 };
 
 export const FetchConfig = async () => {
@@ -138,6 +142,14 @@ export const LoadConfig = (context: Config) => {
 
   if (context?.etkeccAdmin) {
     config.etkeccAdmin = context.etkeccAdmin;
+  }
+
+  if (typeof context?.loginBackgroundUrl === "string") {
+    config.loginBackgroundUrl = context.loginBackgroundUrl;
+  }
+
+  if (typeof context?.loginWelcomeText === "string") {
+    config.loginWelcomeText = context.loginWelcomeText;
   }
 };
 

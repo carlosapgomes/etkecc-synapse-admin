@@ -41,6 +41,10 @@ In this case, you could provide the configuration in the `/.well-known/matrix/cl
   By defining a list of MXID regex patterns, you can protect these accounts from accidental changes.
   Example: `^@baibot:example\\.com$`, `^@slackbot:example\\.com$`, `^@slack_[a-zA-Z0-9\\-]+:example\\.com$`, `^@telegrambot:example\\.com$`, `^@telegram_[a-zA-Z0-9]+:example\\.com$`
   [More details](system-users.md)
+* `loginBackgroundUrl` - set custom login background image URL.
+  It accepts an absolute URL (for example `https://example.com/background.jpg`) or a relative URL served by the same host.
+* `loginWelcomeText` - set custom login welcome text.
+  You can use `%{name}` placeholder to include the instance name (for example: `Welcome to %{name} at HGRS`).
 * `menu` - add custom menu items to the main menu (sidebar) by providing a `menu` array in the config.
   Each `menu` item can contain the following fields:
   * `label` (required): The text to display in the menu.
@@ -58,6 +62,8 @@ In this case, you could provide the configuration in the `/.well-known/matrix/cl
     "https://matrix.example.com",
     "https://synapse.example.net"
   ],
+  "loginBackgroundUrl": "/matrix-assets/admin-background.jpg",
+  "loginWelcomeText": "Welcome to %{name} at HGRS",
   "asManagedUsers": [
     "^@baibot:example\\.com$",
     "^@slackbot:example\\.com$",
@@ -84,6 +90,8 @@ In this case, you could provide the configuration in the `/.well-known/matrix/cl
       "https://matrix.example.com",
       "https://synapse.example.net"
     ],
+    "loginBackgroundUrl": "/matrix-assets/admin-background.jpg",
+    "loginWelcomeText": "Welcome to %{name} at HGRS",
     "asManagedUsers": [
       "^@baibot:example\\.com$",
       "^@slackbot:example\\.com$",

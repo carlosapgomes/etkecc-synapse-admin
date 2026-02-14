@@ -1,0 +1,292 @@
+// SPDX-FileCopyrightText: 2026 Carlos Gomes
+//
+// SPDX-License-Identifier: Apache-2.0
+
+import { SynapseTranslationMessages } from ".";
+import en from "./en";
+
+const ptBR: SynapseTranslationMessages = {
+  ...en,
+  synapseadmin: {
+    ...en.synapseadmin,
+    auth: {
+      ...en.synapseadmin.auth,
+      base_url: "URL do homeserver",
+      welcome: "Bem-vindo ao %{name}",
+      server_version: "Versão do Synapse",
+      supports_specs: "suporta as especificações Matrix",
+      username_error: "Informe o ID completo do usuário: '@usuario:dominio'",
+      protocol_error: "A URL deve começar com 'http://' ou 'https://'",
+      url_error: "URL de servidor Matrix inválida",
+      sso_sign_in: "Entrar com SSO",
+      credentials: "Credenciais",
+      access_token: "Token de acesso",
+      logout_acces_token_dialog: {
+        title: "Você está usando um token de acesso Matrix existente.",
+        content:
+          "Deseja encerrar esta sessão (que pode estar em uso em outro cliente Matrix) ou apenas sair do painel admin?",
+        confirm: "Encerrar sessão",
+        cancel: "Apenas sair do painel admin",
+      },
+    },
+    users: {
+      ...en.synapseadmin.users,
+      invalid_user_id: "Parte local de um ID Matrix sem homeserver.",
+      tabs: {
+        sso: "SSO",
+        experimental: "Experimental",
+        limits: "Limites de taxa",
+        account_data: "Dados da conta",
+      },
+    },
+    rooms: {
+      ...en.synapseadmin.rooms,
+      details: "Detalhes da sala",
+      tabs: {
+        basic: "Básico",
+        members: "Membros",
+        detail: "Detalhes",
+        permission: "Permissões",
+        media: "Mídia",
+      },
+    },
+    reports: { tabs: { basic: "Básico", detail: "Detalhes" } },
+  },
+  import_users: {
+    ...en.import_users,
+    error: {
+      ...en.import_users.error,
+      at_entry: "Na entrada %{entry}: %{message}",
+      error: "Erro",
+      required_field: "Campo obrigatório '%{field}' ausente",
+      invalid_value: "Valor inválido na linha %{row}. O campo '%{field}' deve ser apenas 'true' ou 'false'",
+      unreasonably_big: "Recusado: arquivo muito grande (%{size} MB)",
+      already_in_progress: "Já existe uma importação em andamento",
+      id_exits: "ID %{id} já existe",
+    },
+    title: "Importar usuários via CSV",
+    goToPdf: "Ir para PDF",
+    cards: {
+      ...en.import_users.cards,
+      importstats: {
+        ...en.import_users.cards.importstats,
+        header: "Usuários processados para importação",
+        users_total: "%{smart_count} usuário no CSV |||| %{smart_count} usuários no CSV",
+        guest_count: "%{smart_count} convidado |||| %{smart_count} convidados",
+        admin_count: "%{smart_count} admin |||| %{smart_count} admins",
+      },
+      conflicts: {
+        ...en.import_users.cards.conflicts,
+        header: "Estratégia de conflitos",
+        mode: {
+          stop: "Parar em conflito",
+          skip: "Mostrar erro e ignorar conflito",
+        },
+      },
+      ids: {
+        ...en.import_users.cards.ids,
+        header: "IDs",
+        all_ids_present: "IDs presentes em todas as entradas",
+        count_ids_present: "%{smart_count} entrada com ID |||| %{smart_count} entradas com IDs",
+        mode: {
+          ignore: "Ignorar IDs do CSV e criar novos",
+          update: "Atualizar registros existentes",
+        },
+      },
+      passwords: {
+        ...en.import_users.cards.passwords,
+        header: "Senhas",
+        all_passwords_present: "Senhas presentes em todas as entradas",
+        count_passwords_present: "%{smart_count} entrada com senha |||| %{smart_count} entradas com senhas",
+        use_passwords: "Usar senhas do CSV",
+      },
+      upload: {
+        ...en.import_users.cards.upload,
+        header: "Arquivo CSV de entrada",
+        explanation:
+          "Aqui você pode enviar um CSV para criar ou atualizar usuários. O arquivo deve conter os campos 'id' e 'displayname'. Você pode baixar e adaptar um exemplo aqui: ",
+      },
+      startImport: {
+        ...en.import_users.cards.startImport,
+        simulate_only: "Somente simular",
+        run_import: "Importar",
+      },
+      results: {
+        ...en.import_users.cards.results,
+        header: "Resultados da importação",
+        total: "%{smart_count} entrada no total |||| %{smart_count} entradas no total",
+        successful: "%{smart_count} entradas importadas com sucesso",
+        skipped: "%{smart_count} entradas ignoradas",
+        download_skipped: "Baixar registros ignorados",
+        with_error: "%{smart_count} entrada com erro |||| %{smart_count} entradas com erros",
+        simulated_only: "A execução foi apenas simulada",
+      },
+    },
+  },
+  delete_media: {
+    ...en.delete_media,
+    name: "Mídia",
+    fields: {
+      ...en.delete_media.fields,
+      before_ts: "último acesso antes de",
+      size_gt: "Maior que (em bytes)",
+      keep_profiles: "Manter imagens de perfil",
+    },
+    action: {
+      ...en.delete_media.action,
+      send: "Excluir mídia",
+      send_success: "Solicitação enviada com sucesso.",
+      send_failure: "Ocorreu um erro.",
+    },
+    helper: {
+      ...en.delete_media.helper,
+      send: "Esta API remove as mídias locais do disco do seu servidor, incluindo miniaturas e cópias baixadas.",
+    },
+  },
+  purge_remote_media: {
+    ...en.purge_remote_media,
+    name: "Mídia remota",
+    fields: {
+      ...en.purge_remote_media.fields,
+      before_ts: "último acesso antes de",
+    },
+    action: {
+      ...en.purge_remote_media.action,
+      send: "Limpar mídia remota",
+      send_success: "Solicitação de limpeza de mídia remota enviada.",
+      send_failure: "Ocorreu um erro na solicitação de limpeza de mídia remota.",
+    },
+    helper: {
+      ...en.purge_remote_media.helper,
+      send: "Esta API limpa o cache de mídia remota do seu servidor.",
+    },
+  },
+  resources: {
+    ...en.resources,
+    users: {
+      ...en.resources.users,
+      name: "Usuário |||| Usuários",
+      email: "E-mail",
+      msisdn: "Telefone",
+      threepid: "E-mail / Telefone",
+      membership: "Participação |||| Participações",
+      fields: {
+        ...en.resources.users.fields,
+        id: "ID do usuário",
+        is_guest: "Convidado",
+        admin: "Administrador do servidor",
+        locked: "Bloqueado",
+        suspended: "Suspenso",
+        deactivated: "Desativado",
+        erased: "Apagado",
+        show_guests: "Mostrar convidados",
+        show_deactivated: "Mostrar usuários desativados",
+        show_locked: "Mostrar usuários bloqueados",
+        show_suspended: "Mostrar usuários suspensos",
+        user_id: "Buscar usuário",
+        displayname: "Nome de exibição",
+        avatar_url: "URL do avatar",
+        medium: "Meio",
+        address: "Endereço",
+        creation_ts_ms: "Data de criação",
+        consent_version: "Versão de consentimento",
+        auth_provider: "Provedor",
+        user_type: "Tipo de usuário",
+      },
+      action: {
+        ...en.resources.users.action,
+        erase: "Apagar dados do usuário",
+        erase_avatar: "Apagar avatar",
+        delete_media: "Excluir toda mídia enviada pelo(s) usuário(s)",
+        redact_events: "Redigir todos os eventos enviados pelo(s) usuário(s)",
+        generate_password: "Gerar senha",
+        overwrite_title: "Aviso!",
+        overwrite_content: "Este nome de usuário já existe. Deseja sobrescrever o usuário existente?",
+        overwrite_cancel: "Cancelar",
+        overwrite_confirm: "Sobrescrever",
+      },
+      badge: {
+        ...en.resources.users.badge,
+        you: "Você",
+        bot: "Bot",
+        admin: "Admin",
+        support: "Suporte",
+        regular: "Usuário padrão",
+        federated: "Usuário federado",
+        system_managed: "Gerenciado pelo sistema",
+      },
+      limits: {
+        ...en.resources.users.limits,
+        messages_per_second: "Mensagens por segundo",
+        messages_per_second_text: "Número de ações que podem ser realizadas por segundo.",
+        burst_count: "Contagem de burst",
+        burst_count_text: "Quantas ações podem ocorrer antes do limite.",
+      },
+      account_data: {
+        ...en.resources.users.account_data,
+        title: "Dados da conta",
+        global: "Global",
+        rooms: "Salas",
+      },
+    },
+    rooms: {
+      ...en.resources.rooms,
+      name: "Sala |||| Salas",
+      fields: {
+        ...en.resources.rooms.fields,
+        room_id: "ID da sala",
+        canonical_alias: "Alias",
+        joined_members: "Membros",
+        joined_local_members: "Membros locais",
+        joined_local_devices: "Dispositivos locais",
+        state_events: "Eventos de estado / Complexidade",
+        is_encrypted: "Criptografada",
+        encryption: "Criptografia",
+        federatable: "Federável",
+        public: "Visível no diretório de salas",
+        creator: "Criador",
+        join_rules: "Regras de entrada",
+        guest_access: "Acesso de convidado",
+        history_visibility: "Visibilidade do histórico",
+        topic: "Tópico",
+        actions: "Ações",
+      },
+      filter: {
+        ...en.resources.rooms.filter,
+        public_rooms: "Salas públicas",
+        empty_rooms: "Salas vazias",
+      },
+      enums: {
+        ...en.resources.rooms.enums,
+        join_rules: {
+          public: "Pública",
+          knock: "Pedir entrada",
+          invite: "Convite",
+          private: "Privada",
+        },
+        guest_access: {
+          can_join: "Convidados podem entrar",
+          forbidden: "Convidados não podem entrar",
+        },
+        history_visibility: {
+          invited: "Desde o convite",
+          joined: "Desde a entrada",
+          shared: "Desde o compartilhamento",
+          world_readable: "Qualquer pessoa",
+        },
+        unencrypted: "Sem criptografia",
+      },
+      action: {
+        ...en.resources.rooms.action,
+        erase: {
+          ...en.resources.rooms.action.erase,
+          title: "Excluir sala",
+          content:
+            "Tem certeza que deseja excluir a sala? Esta ação não pode ser desfeita. Todas as mensagens e mídias compartilhadas serão removidas do servidor!",
+        },
+      },
+    },
+  },
+};
+
+export default ptBR;
