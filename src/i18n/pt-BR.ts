@@ -7,6 +7,16 @@ import en from "./en";
 
 const ptBR: SynapseTranslationMessages = {
   ...en,
+  ra: {
+    ...en.ra,
+    auth: {
+      ...en.ra.auth,
+      sign_in: "Entrar",
+      sign_in_error: "Falha ao entrar",
+      username: "Nome de usuário",
+      password: "Senha",
+    },
+  },
   synapseadmin: {
     ...en.synapseadmin,
     auth: {
