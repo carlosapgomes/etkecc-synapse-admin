@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { merge } from "lodash";
 import polyglotI18nProvider from "ra-i18n-polyglot";
 import { useEffect, useState } from "react";
-import { Admin, CustomRoutes, Loading, Resource, resolveBrowserLocale } from "react-admin";
+import { Admin, CustomRoutes, Loading, Resource } from "react-admin";
 import { Route } from "react-router-dom";
 
 import AdminLayout from "./components/AdminLayout";
@@ -51,7 +51,7 @@ const messages = {
 };
 const i18nProvider = polyglotI18nProvider(
   locale => (messages[locale] ? merge({}, messages.en, messages[locale]) : messages.en),
-  resolveBrowserLocale(),
+  "pt-BR",
   [
     { locale: "en", name: "English" },
     { locale: "de", name: "Deutsch" },
